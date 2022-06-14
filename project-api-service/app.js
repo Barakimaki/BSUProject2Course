@@ -11,6 +11,8 @@ const exphbs  = require('express-handlebars');
 
 const routes = require('./routes/index');
 const home = require('./routes/home');
+const library = require('./routes/library');
+const shop = require('./routes/shop');
 
 const app = express();
 
@@ -38,6 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/api/v1/home', home);
+app.use('/api/v1/library', library);
+app.use('/api/v1/shop', shop);
 
 /// catch 404 and forward to error handler
 app.use((req, res, next) => {

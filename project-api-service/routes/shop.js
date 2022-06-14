@@ -9,25 +9,26 @@ jsf.extend('faker', () => faker);
 
 var schema = {
   "type": "array",
-  "minItems": 1,
-  "maxItems": 5,
+  "minItems": 2,
+  "maxItems": 7,
   "items":{
     type:'object',
     properties: {
-      newsTitle: {
+      nameProduct: {
         type: 'string',
-        faker: 'company.catchPhrase'
+        faker: 'commerce.productName'
       },
-      image: {
+      imageProduct: {
         type: 'string',
         faker: 'image.abstract'
       },
-      description: {
-        type:'string',
-        chance: 'paragraph'
-      }
+      price: {
+        type:'number',
+        faker: 'commerce.price'
+      },
+
     },
-    required: ["newsTitle", "image", "description"]
+    required: ['nameProduct', 'imageProduct', 'price']
   }
 };
 
@@ -41,4 +42,3 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
-
