@@ -22,9 +22,9 @@ var schema = {
         type: 'string',
         faker: 'name.lastName'
       },
-      job: {
-        type: 'string',
-        faker: 'name.jobType'
+      date: {
+        type:'string',
+        faker: 'date.recent'
       },
       text: {
         type:'string',
@@ -33,7 +33,7 @@ var schema = {
 
 
     },
-    required: ['name', 'sName', 'job', 'text']
+    required: ['name', 'sName', 'date', 'text']
   }
 };
 
