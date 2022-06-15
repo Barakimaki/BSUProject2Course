@@ -11,21 +11,21 @@ var schema = {
   "type": "array",
   "minItems": 1,
   "maxItems": 5,
-  "items":{
-    type:'object',
+  "items": {
+    type: 'object',
     properties: {
-      newsTitle: {
-        type: 'string',
-        faker: 'company.catchPhrase'
-      },
-      image: {
-        type: 'string',
-        faker: 'image.abstract'
-      },
-      description: {
-        type:'string',
-        chance: 'paragraph'
-      }
+        newsTitle: {
+          type: 'string',
+          faker: 'company.catchPhrase'
+        },
+        image: {
+          type: 'string',
+          faker: 'image.abstract'
+        },
+        description: {
+          type: 'string',
+          chance: 'paragraph'
+        }
     },
     required: ["newsTitle", "image", "description"]
   }

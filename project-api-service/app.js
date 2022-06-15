@@ -2,6 +2,7 @@
 
 
 const express = require('express');
+const cors = require('cors')
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
@@ -39,9 +40,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/api/v1/home', home);
-app.use('/api/v1/library', library);
-app.use('/api/v1/shop', shop);
+app.use('/api/v1/home', cors(), home);
+app.use('/api/v1/library', cors(), library);
+app.use('/api/v1/shop', cors(), shop);
 
 /// catch 404 and forward to error handler
 app.use((req, res, next) => {

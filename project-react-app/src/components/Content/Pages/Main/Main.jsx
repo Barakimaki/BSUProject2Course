@@ -1,16 +1,21 @@
 import APIService from "../../../../api/api";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 
 export default function Main(props) {
 
 
-
-    const result = async ()=> await APIService.getHome();
+    let [state, setState] = useState([])
 
 
     useEffect(() => {
-        console.log(result());
+        fetch(`http://localhost:3002/api/v1/home`, {}).then((response) => {
+            return response.json();
+        })
+            .then((data) => {
+                console.log(data);
+                setState(data)
+            });
     }, []);
 
     return <div>
