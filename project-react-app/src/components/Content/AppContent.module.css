@@ -2,4 +2,7 @@
     grid-area: content;
     background-color: silver;
     height: 90%;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
 }
