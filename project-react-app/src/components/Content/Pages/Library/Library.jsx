@@ -20,7 +20,7 @@ export default function Library(props) {
     }, []);
 
     return <div>
-        <h2>Библиотека</h2>
+        <h2>Наши Авторы</h2>
         {isLoading && <Loader/>}
         {!isLoading && state.map((lib) => {
                 return <LibraryItem

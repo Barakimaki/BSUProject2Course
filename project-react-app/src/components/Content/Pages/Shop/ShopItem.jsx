@@ -1,13 +1,14 @@
-import React from 'react';
-import MyButton from "../../../../button/MyButton";
+import React, {useEffect, useState} from 'react';
 
 const ShopItem = (props) => {
+    let [url, setUrl] = useState('https://oz.by/search/?q=');
+    useEffect(()=> setUrl(url+props.name.split(' ').join('+')), [])
     return (
         <div>
             <h2>{props.name}</h2>
             <img src={props.image} alt=""/>
             <h3>{props.price}$</h3>
-            <MyButton>Купить</MyButton>
+            <a href={url}  target="_blank">Купить</a>
         </div>
     );
 };
