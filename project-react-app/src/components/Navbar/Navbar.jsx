@@ -8,10 +8,10 @@ export default function Navbar(props) {
             <NavLink to="/*">Главная</NavLink>
         </div>
         <div className={style.item}>
-            <NavLink to="/library">Наши авторы</NavLink>
+            <NavLink to="/shop">Наши мероприятия</NavLink>
         </div>
         <div className={style.item}>
-            <NavLink to="/shop">Магазин</NavLink>
+            <NavLink to="/reviews">Отзывы</NavLink>
         </div>
     </nav>;
 };

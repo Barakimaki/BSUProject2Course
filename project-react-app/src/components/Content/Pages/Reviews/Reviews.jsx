@@ -1,16 +1,16 @@
 import {useEffect, useState} from "react";
 import Loader from "../../../../Loader/Loader";
-import LibraryItem from "./LibraryItem";
+import ReviewsItem from "./ReviewsItem";
 
 
-export default function Library(props) {
+export default function Reviews(props) {
 
     let [state, setState] = useState([])
     let [isLoading, setIsLoading] = useState(true);
 
 
     useEffect(() => {
-        fetch(`http://localhost:3002/api/v1/library`, {}).then((response) => {
+        fetch(`http://localhost:3002/api/v1/reviews`, {}).then((response) => {
             return response.json();
         })
             .then((data) => {
@@ -20,15 +20,14 @@ export default function Library(props) {
     }, []);
 
     return <div>
-        <h2>Наши Авторы</h2>
+        <h2>Отзывы</h2>
         {isLoading && <Loader/>}
-        {!isLoading && state.map((lib) => {
-                return <LibraryItem
-                    key={lib.name + lib.sName}
-                    name={lib.name}
-                    sName={lib.sName}
-                    book={lib.book}
-                    cover={lib.cover}/>
+        {!isLoading && state.map((rev) => {
+                return <ReviewsItem
+                    key={rev.nickname}
+                    nickname={rev.nickname}
+                    avatar={rev.avatar}
+                    review={rev.review}/>
 
             }
         )

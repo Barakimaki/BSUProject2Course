@@ -1,10 +1,10 @@
 import Main from "../components/Content/Pages/Main/Main";
-import Library from "../components/Content/Pages/Library/Library";
-import Shop from "../components/Content/Pages/Shop/Shop";
+import Reviews from "../components/Content/Pages/Reviews/Reviews";
+import Events from "../components/Content/Pages/Shop/Events";
 
 
 export const routes = [
     {path: '/*', component: <Main />},
-    {path: '/library', component: <Library />},
-    {path: '/shop', component: <Shop />},
+    {path: '/reviews', component: <Reviews />},
+    {path: '/shop', component: <Events />},
 ]

@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 import Loader from "../../../../Loader/Loader";
-import ShopItem from "./ShopItem";
+import EventItem from "./EventItem";
 
 
-export default function Shop(props) {
+export default function Events(props) {
 
     let [state, setState] = useState([]);
     let [isLoading, setIsLoading] = useState(true);
@@ -20,13 +20,14 @@ export default function Shop(props) {
     }, []);
 
     return <div>
-        <h2>Магазин</h2>
+        <h2>Мероприятия</h2>
         {isLoading && <Loader/>}
         {!isLoading && state.map((item) => {
-                return <ShopItem
+                return <EventItem
                     key={item.nameProduct}
                     name={item.nameProduct}
                     price={item.price}
+                    description={item.description}
                     image={item.imageProduct}/>
 
             }

@@ -9,31 +9,25 @@ jsf.extend('faker', () => faker);
 
 var schema = {
   "type": "array",
-  "minItems": 2,
-  "maxItems": 7,
+  "minItems": 7,
+  "maxItems": 10,
   "items":{
     type:'object',
     properties: {
-      name: {
+      nickname: {
         type: 'string',
-        faker: 'name.firstName'
+        faker: 'internet.userName'
       },
-      sName: {
+      avatar: {
         type: 'string',
-        faker: 'name.lastName'
+        chance: 'avatar'
       },
-      book: {
+      review: {
         type:'string',
-        faker: 'name.jobArea'
-      },
-      cover: {
-        type:'string',
-        faker: 'image.abstract'
-      },
-
-
+        chance: 'paragraph'
+      }
     },
-    required: ['name', 'sName', 'book', 'cover']
+    required: ['nickname', 'avatar', 'review']
   }
 };
 
