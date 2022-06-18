@@ -9,7 +9,7 @@ const EventItem = (props) => {
             <p>{props.description}</p>
             <h3>{props.price}$</h3>
             <span>
-                <a href={"tel:+11111111"}>Заказать</a>
+                <a href={"tel:+79995771202"}>Заказать</a>
             </span>
 </div>
 )
