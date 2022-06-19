@@ -47,7 +47,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
-    res.send({body: "Заказ принят. Ждите звонка"})
+    res.send("ok")
 });
 
 

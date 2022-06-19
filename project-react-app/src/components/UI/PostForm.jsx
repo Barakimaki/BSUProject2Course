@@ -17,10 +17,8 @@ const PostForm = (props) => {
         fetch('http://localhost:3002/api/v1/shop', requestOptions)
             .then((response) => {
                 return response.json();
-            })
-            .then((data) => {
-                alert(data.body);
             });
+        alert("Заказ принят. Ожидайте звонка");
     }
 
     const doPost = (e) => {

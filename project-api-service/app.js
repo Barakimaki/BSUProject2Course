@@ -9,6 +9,10 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const exphbs  = require('express-handlebars');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger/openapi.json');
+
+
 
 
 const routes = require('./routes/index');
@@ -17,6 +21,9 @@ const reviews = require('./routes/reviews');
 const shop = require('./routes/shop');
 
 const app = express();
+
+app.use('/api-docs', swaggerUi.serve);
+app.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 
 const env = process.env.NODE_ENV || 'development';

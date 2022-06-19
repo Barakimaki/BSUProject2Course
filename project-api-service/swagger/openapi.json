@@ -1,0 +1,220 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AE API",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3002/api/v1"
+    }
+  ],
+  "paths": {
+    "/home": {
+      "get": {
+        "description": "Returns array of news",
+        "operationId": "home",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HomeResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller": "exhibition"
+    },
+    "/reviews": {
+      "get": {
+        "description": "Returns reviewsr",
+        "operationId": "main",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller": "main"
+    },
+    "/shop": {
+      "get": {
+        "description": "Returns shop to the caller",
+        "operationId": "shop",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShopResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "returns simple answer from post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Info"
+              },
+              "example": {
+                "name": "rest ads req",
+                "user": "zaert",
+                "tel": "+375292222222"
+              }
+            }
+          }
+        },
+        "description": "parameter id just for test",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+    },
+    "x-swagger-router-controller": "shop"
+  },
+  "/swagger": {
+    "x-swagger-pipe": "swagger_raw"
+  }
+},
+"components": {
+  "schemas": {
+    "HomeResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Home"
+      }
+    },
+    "ReviewsResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Reviews"
+      }
+    },
+    "ShopResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Shop"
+      }
+    },
+    "Home": {
+      "type": "object",
+      "properties": {
+        "newsTitle": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "description": {
+      "type": "string"
+        }
+      }
+    },
+    "Reviews": {
+      "type": "object",
+      "properties": {
+        "nickname": {
+          "type": "string"
+        },
+        "avatar": {
+        "type": "string"
+      },
+        "review": {
+        "type": "string"
+        }
+      }
+    },
+    "Shop": {
+      "type": "object",
+        "properties": {
+          "nameProduct": {
+            "type": "string"
+          },
+          "imageProduct": {
+            "type": "string"
+          },
+         "description": {
+            "type": "string"
+         },
+         "price": {
+           "type": "number"
+         }
+        }
+    },
+    "Info": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        },
+        "tel":{
+          "type": "number"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "required": [
+        "message"
+      ],
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+}
