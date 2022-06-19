@@ -1,11 +1,21 @@
 
-.header {
+.footer {
     grid-area: footer;
     background-color: #859197;
     height: 124px;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
+}
+
+.div{
+    display: flex;
+    align-items: center;
+}
+.span{
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
 }
