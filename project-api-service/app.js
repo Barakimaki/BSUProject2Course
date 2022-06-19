@@ -10,12 +10,14 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const exphbs  = require('express-handlebars');
 
+
 const routes = require('./routes/index');
 const home = require('./routes/home');
 const reviews = require('./routes/reviews');
 const shop = require('./routes/shop');
 
 const app = express();
+
 
 const env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
@@ -43,6 +45,8 @@ app.use('/', routes);
 app.use('/api/v1/home', cors(), home);
 app.use('/api/v1/reviews', cors(), reviews);
 app.use('/api/v1/shop', cors(), shop);
+
+
 
 /// catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -78,3 +82,6 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+
+
+

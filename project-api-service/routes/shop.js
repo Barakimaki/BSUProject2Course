@@ -45,4 +45,10 @@ router.get('/', (req, res) => {
   });
 });
 
+router.post('/', (req, res) => {
+
+    res.send({body: "Заказ принят. Ждите звонка"})
+});
+
+
 module.exports = router;
