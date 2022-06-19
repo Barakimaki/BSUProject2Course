@@ -1,15 +1,15 @@
 .App {
   display: grid;
-  width: 1248px;
+  width: 1440px;
   margin: 0 auto;
 
   grid-template-areas:
       "header header"
       "navbar content"
       "footer footer";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
+  grid-template-rows: 155px 1fr;
+  grid-template-columns: 280px 1160fr;
+  grid-gap: 0px;
 }
 
 

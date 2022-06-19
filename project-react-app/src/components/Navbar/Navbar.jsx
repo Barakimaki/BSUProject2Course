@@ -5,13 +5,19 @@ export default function Navbar(props) {
 
     return <nav className={style.navbar}>
         <div className={style.item}>
-            <NavLink to="/*">Главная</NavLink>
+            <NavLink className={SelectedLink()} to="/*">ГЛАВНАЯ</NavLink>
         </div>
         <div className={style.item}>
-            <NavLink to="/shop">Наши мероприятия</NavLink>
+            <NavLink className={SelectedLink()} to="/shop">НАШИ МЕРОПРИЯТИЯ</NavLink>
         </div>
         <div className={style.item}>
-            <NavLink to="/reviews">Отзывы</NavLink>
+            <NavLink className={SelectedLink()} to="/reviews">ОТЗЫВЫ</NavLink>
         </div>
     </nav>;
 };
+
+const SelectedLink = () => {
+    return (
+        select => select.isActive ? style.activeLink : style.item
+    );
+}

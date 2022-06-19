@@ -1,6 +1,11 @@
-.footer {
+
+.header {
     grid-area: footer;
-    background-color: lightgreen;
-    height: 40px;
+    background-color: #859197;
+    height: 124px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }

@@ -1,10 +1,11 @@
 import React from 'react';
+import style from './ReviewsItem.module.css'
 
 const ReviewsItem = (props) => {
     return (<div>
-            <h2>{props.nickname}</h2>
+            <h3 className={style.h3}>{props.nickname}</h3>
             <img src={props.avatar} alt=""/>
-            <p>{props.review}</p>
+            <p className={style.p}>{props.review}</p>
         </div>
     );
 };
