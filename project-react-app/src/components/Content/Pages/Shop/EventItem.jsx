@@ -3,15 +3,16 @@ import MyModal from "../../../UI/MyModal/MyModal";
 import MyButton from "../../../UI/button/MyButton";
 import PostForm from "../../../UI/PostForm";
 import style from "./EventItem.module.css"
+import {NavLink} from "react-router-dom";
 
 const EventItem = (props) => {
 
     const [modal, setModal] = useState(false);
 
+
     const disableModal = (newPost) => {
         setModal(false);
     }
-
 
 
     return (
@@ -19,14 +20,16 @@ const EventItem = (props) => {
             <h3 className={style.h3}>{props.name}</h3>
             <img src={props.image} alt=""/>
             <p className={style.p}>{props.description}</p>
+            { !props.isFull &&
+            <NavLink to={"../catalog/"+ props.name}>Подробнее</NavLink>}
             <h3 className={style.h3}>{props.price}$</h3>
-
             <MyButton style={{marginTop: 10, marginBottom: 35}} onClick={() => setModal(true)}>
                 ЗАКАЗАТЬ
             </MyButton>
             <MyModal visible={modal} setVisible={setModal}>
                 <PostForm disableModal = {disableModal}  name = {props.name}/>
             </MyModal>
+
         </div>
 )
 ;

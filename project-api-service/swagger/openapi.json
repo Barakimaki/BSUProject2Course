@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/home": {
+    "/news": {
       "get": {
         "description": "Returns array of news",
         "operationId": "home",
@@ -20,7 +20,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HomeResponse"
+                  "$ref": "#/components/schemas/NewsResponse"
                 }
               }
             }
@@ -68,17 +68,17 @@
       },
       "x-swagger-router-controller": "main"
     },
-    "/shop": {
+    "/catalog": {
       "get": {
-        "description": "Returns shop to the caller",
-        "operationId": "shop",
+        "description": "Returns catalog to the caller",
+        "operationId": "catalog",
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ShopResponse"
+                  "$ref": "#/components/schemas/CatalogResponse"
                 }
               }
             }
@@ -118,63 +118,93 @@
             "description": "OK"
           }
         }
-    },
-    "x-swagger-router-controller": "shop"
-  },
-  "/swagger": {
-    "x-swagger-pipe": "swagger_raw"
-  }
-},
-"components": {
-  "schemas": {
-    "HomeResponse": {
-      "type": "array",
-      "items": {
-        "$ref": "#/components/schemas/Home"
-      }
-    },
-    "ReviewsResponse": {
-      "type": "array",
-      "items": {
-        "$ref": "#/components/schemas/Reviews"
-      }
-    },
-    "ShopResponse": {
-      "type": "array",
-      "items": {
-        "$ref": "#/components/schemas/Shop"
-      }
-    },
-    "Home": {
-      "type": "object",
-      "properties": {
-        "newsTitle": {
-          "type": "string"
-        },
-        "image": {
-          "type": "string"
-        },
-        "description": {
-      "type": "string"
-        }
-      }
-    },
-    "Reviews": {
-      "type": "object",
-      "properties": {
-        "nickname": {
-          "type": "string"
-        },
-        "avatar": {
-        "type": "string"
       },
-        "review": {
-        "type": "string"
+      "x-swagger-router-controller": "shop"
+    },
+    "/catalog/{param}": {
+      "get": {
+        "description": "Returns catalog to the caller",
+        "operationId": "catalog",
+        "parameters": [
+          {
+            "name": "nameProduct",
+            "in": "path",
+            "required": true,
+            "description": "simple parameter",
+            "schema": {
+              "type": "string",
+              "example": "ASDewq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Catalog"
+                }
+              }
+            }
+          }
         }
       }
     },
-    "Shop": {
-      "type": "object",
+    "/swagger": {
+      "x-swagger-pipe": "swagger_raw"
+    }
+  },
+  "components": {
+    "schemas": {
+      "NewsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/News"
+        }
+      },
+      "ReviewsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Reviews"
+        }
+      },
+      "CatalogResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Catalog"
+        }
+      },
+      "News": {
+        "type": "object",
+        "properties": {
+          "newsTitle": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "Reviews": {
+        "type": "object",
+        "properties": {
+          "nickname": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "review": {
+            "type": "string"
+          }
+        }
+      },
+      "Catalog": {
+        "type": "object",
         "properties": {
           "nameProduct": {
             "type": "string"
@@ -182,39 +212,39 @@
           "imageProduct": {
             "type": "string"
           },
-         "description": {
+          "description": {
             "type": "string"
-         },
-         "price": {
-           "type": "number"
-         }
+          },
+          "price": {
+            "type": "number"
+          }
         }
-    },
-    "Info": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "user": {
-          "type": "string"
-        },
-        "tel":{
-          "type": "number"
+      },
+      "Info": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "tel": {
+            "type": "number"
+          }
         }
-      }
-    },
-    "ErrorResponse": {
-      "required": [
-        "message"
-      ],
-      "type": "object",
-      "properties": {
-        "message": {
-          "type": "string"
+      },
+      "ErrorResponse": {
+        "required": [
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
         }
       }
     }
   }
-}
 }

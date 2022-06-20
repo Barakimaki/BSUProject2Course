@@ -45,6 +45,15 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/:nameProduct', (req, res)=>{
+  res.send({
+    nameProduct: req.params.nameProduct,
+    imageProduct:  faker.image.abstract(),
+    description: chance.paragraph({ sentences: 20 }),
+    price: faker.commerce.price
+  })
+})
+
 router.post('/', (req, res) => {
 
     res.send("ok")

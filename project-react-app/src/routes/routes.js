@@ -6,5 +6,6 @@ import Events from "../components/Content/Pages/Shop/Events";
 export const routes = [
     {path: '/*', component: <Main />},
     {path: '/reviews', component: <Reviews />},
-    {path: '/shop', component: <Events />},
+    {path: '/catalog', component: <Events />},
+    {path: `/catalog/*`, component: <Events/>},
 ]

@@ -15,14 +15,14 @@ export default function Main(props) {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3002/api/v1/home`, {}).then((response) => {
+        fetch(`http://localhost:3002/api/v1/news`, {}).then((response) => {
             return response.json();
         })
             .then((data) => {
                 setNews(data);
                 setIsLoading(false);
             });
-        fetch(`http://localhost:3002/api/v1/shop`, {}).then((response) => {
+        fetch(`http://localhost:3002/api/v1/catalog`, {}).then((response) => {
             return response.json();
         })
             .then((data) => {
@@ -32,8 +32,8 @@ export default function Main(props) {
             });
     }, []);
 
-    return <div className={style.news}>
-        <img src={img} className={style.img} alt=""/>
+    return <div>
+        <img src={img} alt=""/>
         <div className={style.content}>
             {isLoading && <Loader/>}
             <h2 className={style.h2}>Рекомендуем</h2>

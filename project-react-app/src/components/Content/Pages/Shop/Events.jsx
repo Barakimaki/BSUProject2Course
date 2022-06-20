@@ -8,20 +8,36 @@ export default function Events(props) {
 
     let [state, setState] = useState([]);
     let [isLoading, setIsLoading] = useState(true);
+    let [isFull, setIsFull] = useState(false)
 
-
-    useEffect(() => {
-        fetch(`http://localhost:3002/api/v1/shop`, {}).then((response) => {
-            return response.json();
-        })
-            .then((data) => {
-                setState(data);
-                setIsLoading(false);
-            });
-    }, []);
+    useEffect((param) => {
+        let backUrl = `http://localhost:3002/api/v1/catalog`;
+        let frontUrl = window.location.href;
+        frontUrl = frontUrl.split('/')
+        if (frontUrl.length > 4) {
+            backUrl += '/' + frontUrl[frontUrl.length - 1];
+            setIsFull(true)
+            fetch(backUrl, {}).then((response) => {
+                return response.json();
+            })
+                .then((data) => {
+                    setState([data]);
+                    setIsLoading(false);
+                });
+        } else {
+            setIsFull(false);
+            fetch(backUrl, {}).then((response) => {
+                return response.json();
+            })
+                .then((data) => {
+                    setState(data);
+                    setIsLoading(false);
+                });
+        }
+    }, [window.location.href]);
 
     return <div>
-        <img src={img} className={style.img} alt=""/>
+        <img src={img} alt=""/>
         <div className={style.content}>
             <h2 className={style.h2}>Мероприятия</h2>
             {isLoading && <Loader/>}
@@ -31,7 +47,9 @@ export default function Events(props) {
                         name={item.nameProduct}
                         price={item.price}
                         description={item.description}
-                        image={item.imageProduct}/>
+                        image={item.imageProduct}
+                        isFull={isFull}
+                    />
 
                 }
             )

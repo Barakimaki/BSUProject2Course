@@ -16,9 +16,9 @@ const swaggerDocument = require('./swagger/openapi.json');
 
 
 const routes = require('./routes/index');
-const home = require('./routes/home');
+const news = require('./routes/news');
 const reviews = require('./routes/reviews');
-const shop = require('./routes/shop');
+const catalog = require('./routes/catalog');
 
 const app = express();
 
@@ -49,9 +49,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/api/v1/home', cors(), home);
+app.use('/api/v1/news', cors(), news);
 app.use('/api/v1/reviews', cors(), reviews);
-app.use('/api/v1/shop', cors(), shop);
+app.use('/api/v1/catalog', cors(), catalog);
 
 
 

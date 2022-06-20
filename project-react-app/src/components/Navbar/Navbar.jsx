@@ -8,7 +8,7 @@ export default function Navbar(props) {
             <NavLink className={SelectedLink()} to="/*">ГЛАВНАЯ</NavLink>
         </div>
         <div className={style.item}>
-            <NavLink className={SelectedLink()} to="/shop">НАШИ МЕРОПРИЯТИЯ</NavLink>
+            <NavLink className={SelectedLink()} to="/catalog">НАШИ МЕРОПРИЯТИЯ</NavLink>
         </div>
         <div className={style.item}>
             <NavLink className={SelectedLink()} to="/reviews">ОТЗЫВЫ</NavLink>

@@ -14,7 +14,7 @@ const PostForm = (props) => {
     };
 
     const post = () => {
-        fetch('http://localhost:3002/api/v1/shop', requestOptions)
+        fetch('http://localhost:3002/api/v1/catalog', requestOptions)
             .then((response) => {
                 return response.json();
             });
